@@ -48,10 +48,18 @@ export const readById = async (c: Context) => {
 
 export const update = async (c: Context) => {
   try {
-    const body = await c.req.json();
-    const { id, title, content, categoryId } = body;
+    const { id } = c.req.param();
+    if (!id) {
+      const error = new Error();
+      error.message = 'Post id must be provided';
+      error.name = 'validationError';
+      throw error;
+    }
 
-    let post = await Post.getPostById(id);
+    const body = await c.req.json();
+    const { title, content, categoryId } = body;
+
+    let post = await Post.getPostById(Number(id));
 
     if (post.getUserId() !== Number(c.get('user').id)) {
       const error = new Error();
@@ -60,7 +68,7 @@ export const update = async (c: Context) => {
       throw error;
     }
 
-    post = new Post(c.get('user').id, title, content, id, categoryId);
+    post = new Post(c.get('user').id, title, content, categoryId, Number(id));
 
     post = await post.update();
 

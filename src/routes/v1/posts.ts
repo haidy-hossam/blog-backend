@@ -15,7 +15,7 @@ app.get('/', ...factory.createHandlers(Auth(factory), read));
 
 app.get('/:id', ...factory.createHandlers(Auth(factory), readById));
 
-app.patch('/', ...factory.createHandlers(Auth(factory), postsValidator.updateSchema, update));
+app.patch('/:id', ...factory.createHandlers(Auth(factory), postsValidator.updateSchema, update));
 
 app.delete('/:id', ...factory.createHandlers(Auth(factory), deleteById));
 

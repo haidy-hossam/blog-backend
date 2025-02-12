@@ -14,7 +14,6 @@ export const updateSchema = zValidator(
   'json',
   z
     .object({
-      id: z.number(),
       name: z.string().optional(),
     })
     .strict(),

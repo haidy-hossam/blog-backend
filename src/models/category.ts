@@ -64,7 +64,7 @@ export class Category {
       );
     } else {
       const error = new Error();
-      error.message = 'Post not found, please try again.';
+      error.message = 'Category not found, please try again.';
       error.name = 'NotFoundError';
       throw error;
     }
@@ -80,7 +80,7 @@ export class Category {
       return new Category(category[0].userId, category[0].name, category[0].id, category[0].createdAt);
     } else {
       const error = new Error();
-      error.message = 'Post id must be provided';
+      error.message = 'Category id must be provided';
       error.name = 'validationError';
       throw error;
     }
@@ -95,7 +95,7 @@ export class Category {
       return new Category(category[0].userId, category[0].name, category[0].id, category[0].createdAt);
     } else {
       const error = new Error();
-      error.message = 'Post id must be provided';
+      error.message = 'Category id must be provided';
       error.name = 'validationError';
       throw error;
     }
