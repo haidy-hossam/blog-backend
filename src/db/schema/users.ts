@@ -1,6 +1,7 @@
 import { pgTable, varchar, timestamp, serial } from 'drizzle-orm/pg-core';
 import { relations } from 'drizzle-orm';
 
+import { posts } from './posts';
 import { categories } from './categories';
 
 export const users = pgTable('users', {
@@ -14,5 +15,6 @@ export const users = pgTable('users', {
 });
 
 export const usersRelations = relations(users, ({ many }) => ({
+  posts: many(posts),
   categories: many(categories),
 }));

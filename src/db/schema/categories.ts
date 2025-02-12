@@ -2,6 +2,7 @@ import { pgTable, timestamp, serial, varchar, integer } from 'drizzle-orm/pg-cor
 import { relations } from 'drizzle-orm';
 
 import { users } from './users';
+import { posts } from './posts';
 
 export const categories = pgTable('categories', {
   id: serial('id').primaryKey(),
@@ -12,9 +13,10 @@ export const categories = pgTable('categories', {
   deleted_at: timestamp(),
 });
 
-export const categoriesRelations = relations(categories, ({ one }) => ({
+export const categoriesRelations = relations(categories, ({ one, many }) => ({
   user: one(users, {
     fields: [categories.userId],
     references: [users.id],
   }),
+  posts: many(posts),
 }));

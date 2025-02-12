@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 
 import categories from './src/routes/v1/categories';
 import users from './src/routes/v1/users';
+import posts from './src/routes/v1/posts';
 
 dotenv.config({
   path: '.env',
@@ -16,5 +17,7 @@ app.use(logger());
 app.route('/api/v1/users', users);
 
 app.route('/api/v1/categories', categories);
+
+app.route('/api/v1/posts', posts);
 
 export default app;

@@ -15,6 +15,13 @@
       "when": 1739389903727,
       "tag": "0001_dusty_fantastic_four",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1739390105126,
+      "tag": "0002_unique_wildside",
+      "breakpoints": true
     }
   ]
 }
